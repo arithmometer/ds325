@@ -84,6 +84,8 @@ each pixel, expressed in meters. Saturated pixels are given the special value -2
 */
 void onNewDepthSample(DepthNode node, DepthNode::NewSampleReceivedData data)
 {
+    int32_t w, h;
+    FrameFormat_toResolution(data.captureConfiguration.frameFormat, &w, &h);
 //    // Project some 3D points in the Color Frame
 //    if (!g_pProjHelper)
 //    {
@@ -96,8 +98,6 @@ void onNewDepthSample(DepthNode node, DepthNode::NewSampleReceivedData data)
 //        g_scp = data.stereoCameraParameters;
 //    }
 //
-//    int32_t w, h;
-//    FrameFormat_toResolution(data.captureConfiguration.frameFormat, &w, &h);
 //    int cx = w/2;
 //    int cy = h/2;
 //
